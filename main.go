@@ -4,6 +4,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -18,5 +19,7 @@ func main() {
 }
 
 func Tmp(w http.ResponseWriter, r *http.Request) {
+	port := os.Getenv("DB_PORT")
+	log.Println(port)
 	io.WriteString(w, "version 1")
 }
